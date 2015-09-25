@@ -8,6 +8,8 @@ Author URI: https://andrewrminion.com/
 Plugin URI: http://code.andrewrminion.com/get-tags-by-category/
 Text Domain: get-tags-by-category
 Domain Path: /languages
+GitHub Plugin URI: https://github.com/macbookandrew/get-tags-by-category
+GitHub Branch: master
 */
 
 /**
