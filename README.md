@@ -1,28 +1,28 @@
-=== Get Tags by Category ===
-Contributors: macbookandrew
-Donate link: https://cash.me/$AndrewRMinionDesign
-Tags: comments, spam
-Requires at least: 3.0.1
-Tested up to: 4.3.1
-Stable tag: 1.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+# Get Tags by Category #
+**Contributors:** macbookandrew  
+**Donate link:** https://cash.me/$AndrewRMinionDesign  
+**Tags:** comments, spam  
+**Requires at least:** 3.0.1  
+**Tested up to:** 4.3.1  
+**Stable tag:** 1.0  
+**License:** GPLv2 or later  
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
 Shortcode to provide a list of the tags used on posts in the specified category
 
-== Description ==
+## Description ##
 
 Use the shortcode `[tags_by_category category="Uncategorized"]` to get all the tags used in the “Uncategorized” category.
 
 To style, add CSS rules for `.tags-by-category` and child `li`s as needed.
 
-== Installation ==
+## Installation ##
 
 1. Upload this folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the “Plugins” menu in WordPress
 1. Use `[tags_by_category category="Uncategorized"]` in your posts/pages
 
-== Changelog ==
+## Changelog ##
 
-= 1.0 =
+### 1.0 ###
 * Initial version

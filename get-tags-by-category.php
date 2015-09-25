@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: Get-tags-by-category
-Version: 0.1-alpha
-Description: PLUGIN DESCRIPTION HERE
-Author: YOUR NAME HERE
-Author URI: YOUR SITE HERE
-Plugin URI: PLUGIN SITE HERE
+Plugin Name: Get Tags by Category
+Version: 1.0
+Description: Shortcode to provide a list of the tags used on posts in the specified category
+Author: AndrewRMinion Design
+Author URI: https://andrewrminion.com/
+Plugin URI: http://code.andrewrminion.com/get-tags-by-category/
 Text Domain: get-tags-by-category
 Domain Path: /languages
 */
