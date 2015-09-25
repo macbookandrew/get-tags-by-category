@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Get Tags by Category
-Version: 1.1
+Version: 1.1.1
 Description: Shortcode to provide a list of the tags used on posts in the specified category
 Author: AndrewRMinion Design
 Author URI: https://andrewrminion.com/
@@ -21,13 +21,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Set up shortcode
- * @param string $atts Name of category to query
+ * @param array $atts WP-supplied array of attributes as follows:
+ *                    string $category Category name
+ *                    string $class    Extra classes to add to the containing element
  */
 function gtbc_query( $atts ) {
     // Attributes
     extract( shortcode_atts(
         array(
-            'category' => '',
+            'category'  => '',
+            'class'     => ''
         ), $atts )
     );
 
@@ -35,17 +38,21 @@ function gtbc_query( $atts ) {
     $tags = get_category_tags( $category );
 
     // Output the list
-    $shortcode_content = '<ul class="tags-by-category">';
+    $shortcode_content = '<div class="tags-by-category';
+    if ( $class ) {
+        $shortcode_content .= ' ' . $class;
+    }
+    $shortcode_content .= '">';
     foreach ( $tags as $tag ) {
-        $shortcode_content .= '<li><a title="' . $tag->post_count . ' ';
+        $shortcode_content .= '<a title="' . $tag->post_count . ' ';
         if ( $tag->post_count == 1 ) {
             $shortcode_content .= 'topic';
         } else {
             $shortcode_content .= 'topics';
         }
-        $shortcode_content .= '" href="' . $tag->tag_link . '">' . $tag->tag_name . '</a></li>';
+        $shortcode_content .= '" href="' . $tag->tag_link . '">' . $tag->tag_name . '</a>';
     }
-    $shortcode_content .= '</ul>';
+    $shortcode_content .= '</div>';
 
     return $shortcode_content;
 }

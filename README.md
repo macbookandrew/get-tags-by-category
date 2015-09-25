@@ -4,7 +4,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 3.0.1  
 **Tested up to:** 4.3.1  
-**Stable tag:** 1.1  
+**Stable tag:** 1.1.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -23,6 +23,9 @@ To style, add CSS rules for `.tags-by-category` and child `li`s as needed.
 1. Use `[tags_by_category category="Uncategorized"]` in your posts/pages
 
 ## Changelog ##
+
+### 1.1.1 ###
+* Add support for passing in a class to be appended to the container element
 
 ### 1.1 ###
 * Get count of posts per tag
