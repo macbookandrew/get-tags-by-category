@@ -35,7 +35,13 @@ function gtbc_query( $atts ) {
     // Output the list
     $shortcode_content = '<ul class="tags-by-category">';
     foreach ( $tags as $tag ) {
-        $shortcode_content .= '<li><a href="' . $tag->tag_link . '">' . $tag->tag_name . '</a></li>';
+        $shortcode_content .= '<li><a title="' . $tag->post_count . ' ';
+        if ( $tag->post_count == 1 ) {
+            $shortcode_content .= 'topic';
+        } else {
+            $shortcode_content .= 'topics';
+        }
+        $shortcode_content .= '" href="' . $tag->tag_link . '">' . $tag->tag_name . '</a></li>';
     }
     $shortcode_content .= '</ul>';
 
@@ -57,7 +63,7 @@ function get_category_tags( $category_name ) {
     // Query the database
     $tags = $wpdb->get_results
     ("
-    SELECT DISTINCT terms2.term_id as tag_id, terms2.name as tag_name, null as tag_link
+    SELECT DISTINCT terms2.term_id as tag_id, terms2.name as tag_name, null as tag_link, null as post_count
     FROM
         " . $table_prefix . "posts as p1
         LEFT JOIN " . $table_prefix . "term_relationships as r1 ON p1.ID = r1.object_ID
@@ -75,10 +81,20 @@ function get_category_tags( $category_name ) {
     ORDER BY tag_name
     ");
 
-    // loop over tags, setting the tag_link
+    // loop over tags, setting the tag_link and post_count
     $count = 0;
     foreach ( $tags as $tag ) {
         $tags[$count]->tag_link = get_tag_link($tag->tag_id);
+
+        // loop over tags, getting number of posts per tag
+        $all_tags = get_tags( array( 'search' => $tags[$count]->tag_name ) );
+        foreach ( $all_tags as $this_tag ) {
+            if ( $tags[$count]->tag_name == $this_tag->name ) {
+                $tags[$count]->post_count = $this_tag->count;
+            }
+        }
+
+        // increment the array index counter
         $count++;
     }
     return $tags;
