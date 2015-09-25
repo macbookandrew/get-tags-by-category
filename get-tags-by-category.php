@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Get Tags by Category
-Version: 1.0
+Version: 1.1
 Description: Shortcode to provide a list of the tags used on posts in the specified category
 Author: AndrewRMinion Design
 Author URI: https://andrewrminion.com/
