@@ -70,14 +70,14 @@ function get_category_tags( $category_name ) {
         LEFT JOIN " . $table_prefix . "terms as terms2 ON t2.term_id = terms2.term_id
     WHERE
         t1.taxonomy = 'category' AND p1.post_status = 'publish' AND terms1.name LIKE '$category_name' AND
-        t2.taxonomy = 'post_tag' AND p2.post_status = 'publish'
-        AND p1.ID = p2.ID
+        t2.taxonomy = 'post_tag' AND p2.post_status = 'publish' AND
+        p1.ID = p2.ID
     ORDER BY tag_name
     ");
 
     // loop over tags, setting the tag_link
     $count = 0;
-    foreach ($tags as $tag) {
+    foreach ( $tags as $tag ) {
         $tags[$count]->tag_link = get_tag_link($tag->tag_id);
         $count++;
     }
